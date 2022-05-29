@@ -15,12 +15,18 @@ def signup():
 
 @app.route('/signin')
 def signin():
-    return ("Je suis la page de connection")
+    mail=str(mail)
+    if mail  == :
+        return ("Je suis la page de connection")
+    
+    pass #mail de la base
+    
 
 
 @app.route('/salon')
 def salon():
     return print("Je suis la page de disccussion")
 
-
+print("gouzi gouzi")
+#git commit -m "First commit"
 app.run(host='0.0.0.0', port=8080)
