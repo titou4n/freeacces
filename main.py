@@ -28,5 +28,8 @@ def salon():
     return print("Je suis la page de disccussion")
 
 print("gouzi gouzi")
+print("gouzi gouzi")
+print("gouzi gouzi")
+print("gouzi gouzi")
 #git commit -m "First commit"
 app.run(host='0.0.0.0', port=8080)
