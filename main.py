@@ -1,25 +1,28 @@
 from flask import Flask, render_template, request
+from flask_pymongo import PyMongo
+
 app = Flask('app')
+cluster=PyMongo( app, "mongodb://freeacces:freeacces@cluster.mongode.net/admin")
 
 
 @app.route('/')
 def acceuil():
-    return ("Je suis la page d'acceuil")
+    return render_template('accueil.html')
 
 @app.route('/signup')
 def signup():
-    #if request.method == 'POST':
-        #recuperer = request.form['name']
-        #return render_template('page2.html',name=recuperer)
-    return("Je suis la page d'inscription'")
+    cluster.insert_one({"mail":"mail"},{"password":"password"})
+    #if request.method == "mail" and :
+        #recuperer = request.form['mail']
+    return render_template('page2.html')
 
 @app.route('/signin')
 def signin():
-    mail=str(mail)
-    if mail  == :
+    #mail=str(mail)
+    #if mail  == :
         return ("Je suis la page de connection")
     
-    pass #mail de la base
+    #pass #mail de la base
     
 
 
@@ -32,4 +35,5 @@ print("gouzi gouzi")
 print("gouzi gouzi")
 print("gouzi gouzi")
 #git commit -m "First commit"
-app.run(host='0.0.0.0', port=8080)
+
+app.run(host='0.0.0.0')
