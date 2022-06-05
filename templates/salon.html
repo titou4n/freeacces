@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head> </head>
+  <body>
+    <p>Bienvenue sur le salon</p>
+    <form action="{{url_for('index')}}" method="POST">
+      <div class="field">
+        <label class="label"> Message </label>
+        <div class="control">
+          <textarea class="textarea" name="Message" placeholder="Message">
+          </textarea>
+        </div>
+      </div>
+
+      <button class="button" type="submit">Valider</button>
+    </form>
+  </body>
+</html>

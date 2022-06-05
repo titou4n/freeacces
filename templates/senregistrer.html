@@ -3,5 +3,30 @@
   <head> </head>
   <body>
     <p>Bienvenue sur la page d'enregistrement</p>
+    <form action="{{url_for('index')}}" method="POST">
+      <div class="field">
+        <label class="label"> Email </label>
+        <div class="control">
+          <input
+            class="input"
+            type="email"
+            name="mail"
+            placeholder="mail@mail.fr"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label"> Mot de passe </label>
+        <div class="control">
+          <input
+            class="input"
+            type="password"
+            name="mdp"
+            placeholder="Mot de passe"
+          />
+        </div>
+      </div>
+      <button class="button" type="submit">Valider</button>
+    </form>
   </body>
 </html>
