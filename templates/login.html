@@ -4,6 +4,8 @@
   <body>
     <p>Bienvenue sur la page de connection</p>
 
+    {% extends "base.html" %} {% block content %} {% if erreur %} {{erreur}} {%
+    endif %}
     <form action="{{url_for('index')}}" method="POST">
       <div class="field">
         <label class="label"> Email </label>
@@ -27,7 +29,19 @@
           />
         </div>
       </div>
-      <button class="button" type="submit">Valider</button>
+      <div class="field">
+        <label class="label">Confirmer le Mot de passe</label>
+        <div class="control">
+          <input
+            class="input"
+            type="password"
+            name="verif_mdp"
+            placeholder="mot de passe "
+          />
+        </div>
+      </div>
+      <button type="submit" class="button">Créer un compte</button>
     </form>
+    {% endblock %}
   </body>
 </html>
