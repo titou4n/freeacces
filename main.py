@@ -6,12 +6,16 @@ app = Flask('app')
 cluster=PyMongo( app, "mongodb://freeacces:freeacces@cluster.mongodb.net/admin")
 
 
+#@app.route('/', methods=['POST','GET'])
+#def acceuil():
+    #if 'util' in session:
+      #  return render_template('accueil.html',nom=session['util'])
+   # else:
+       # return render_template('accueil.html')    
+
 @app.route('/', methods=['POST','GET'])
 def acceuil():
-    if 'util' in session:
-        return render_template('accueil.html',nom=session['util'])
-    else:
-        return render_template('accueil.html')    
+	return render_template('accueil.html')    
 
 @app.route('/logout')
 def logout():
@@ -25,11 +29,12 @@ def login():
 		base_donne = cluster.db.test
 		util = base_donne.find_one({'mail' : request.form['mail']})
 		if util :
-			if bcrypt.checkpw(request.form['mot_de_passe'].encode('utf-8'), util['mdp']):
-				session['util']= request.form['mail']
-				return redirect(url_for("acceuil"))
-			else:
-				return render_template('login.html',erreur="Le mot de passe est incorect")
+			if request.form['mdp'] == request.form['verif_mdp']:
+				if bcrypt.checkpw(request.form['mdp'].encode('utf-8'), util['mdp']):
+					session['util']= request.form['mail']
+					return redirect(url_for("acceuil"))
+				else:
+					return render_template('login.html',erreur="Le mot de passe est incorect")
 		else :
 			return render_template('login.html', erreur="Le nom d'utlisateur n'existe pas")
 	
